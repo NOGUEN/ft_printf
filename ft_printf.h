@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 10:53:56 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/20 10:58:56 by hnoh             ###   ########.fr       */
+/*   Updated: 2021/01/21 10:30:05 by hnoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 # include <stdarg.h>
 # include <stdlib.h>
 
-int			ft_printf(const char c, ...);
+int			ft_printf(const char *format, ...);
 
 #endif
