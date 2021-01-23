@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 10:53:56 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/23 10:48:32 by hnoh             ###   ########.fr       */
+/*   Updated: 2021/01/23 11:56:13 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@
 int			ft_printf(const char *format, ...);
 
 char		*ft_vsprintf_percentsign(const char *fmt, char **str);
-void		ft_vsprintf_flag(char *tmp);
-void		ft_vsprintf_width(char *tmp, va_list args);
-void		ft_vsprintf_precision(char *tmp, va_list args);
-void		ft_vsprintf_conversion(char *tmp);
+char		*ft_vsprintf_flag(char *tmp);
+char		*ft_vsprintf_width(char *tmp, va_list args);
+char		*ft_vsprintf_precision(char *tmp, va_list args);
+char		*ft_vsprintf_conversion(char *tmp);
 
 int			ft_skip_atoi(const char **s);
 
