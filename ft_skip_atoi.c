@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_skip_atoi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 10:57:32 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/23 11:03:36 by nogeun           ###   ########.fr       */
+/*   Created: 2021/01/23 09:12:58 by hnoh              #+#    #+#             */
+/*   Updated: 2021/01/23 09:14:52 by hnoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+int		ft_skip_atoi(const char **s)
 {
-	char	printf_buf[1024];
-	va_list	args;
-	int		printed;
+	int i = 0;
 
-	va_start(args, format);
-	printed = ft_vsprintf(printf_buf, format, args);
-	va_end(args);
-
-	ft_puts(printf_buf);
-	return (printed);
+	while (ft_isdigit(**s))
+	{
+		i = i * 10 + *((*s)++) - '0';
+	}
+	return (i);
 }

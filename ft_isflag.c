@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_isflag.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 10:57:32 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/23 11:03:36 by nogeun           ###   ########.fr       */
+/*   Created: 2021/01/22 11:14:52 by hnoh              #+#    #+#             */
+/*   Updated: 2021/01/23 09:16:19 by hnoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+int		ft_isflag(char *p)
 {
-	char	printf_buf[1024];
-	va_list	args;
-	int		printed;
-
-	va_start(args, format);
-	printed = ft_vsprintf(printf_buf, format, args);
-	va_end(args);
-
-	ft_puts(printf_buf);
-	return (printed);
+	if (*p == '-' || *p == '+' || *p == ' ' 
+			|| *p == '#' || *p == '0')
+		return (1);
+	else
+		return (0);
 }

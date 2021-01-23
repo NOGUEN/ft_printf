@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_puts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 10:57:32 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/23 11:03:36 by nogeun           ###   ########.fr       */
+/*   Created: 2021/01/23 10:44:54 by nogeun            #+#    #+#             */
+/*   Updated: 2021/01/23 10:53:08 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+void	ft_puts(const char *str)
 {
-	char	printf_buf[1024];
-	va_list	args;
-	int		printed;
-
-	va_start(args, format);
-	printed = ft_vsprintf(printf_buf, format, args);
-	va_end(args);
-
-	ft_puts(printf_buf);
-	return (printed);
+	while (*str != '\0')
+	{
+		write(1, str, 1);
+		str++;
+	}
 }

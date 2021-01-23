@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_vsprintf_p.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 10:57:32 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/23 11:03:36 by nogeun           ###   ########.fr       */
+/*   Created: 2021/01/23 11:51:04 by nogeun            #+#    #+#             */
+/*   Updated: 2021/01/23 11:55:28 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+void		ft_vsprintf_p()
 {
-	char	printf_buf[1024];
-	va_list	args;
-	int		printed;
-
-	va_start(args, format);
-	printed = ft_vsprintf(printf_buf, format, args);
-	va_end(args);
-
-	ft_puts(printf_buf);
-	return (printed);
+	if (field_width == -1)
+	{
+		field_width = 2 * sizeof(void *);
+		flags |= ZEROPAD;
+	}
+	str = number(str,
+			(unsigned long)va_arg(args, void *), 16,
+			field_width, precision, flags);
 }

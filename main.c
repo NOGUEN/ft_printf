@@ -1,6 +1,6 @@
-#include <stdio.h>
+#include "ft_printf.h"
 
 int main()
 {
-	printf("hello %d hello", 123);
+	ft_puts("123");
 }
