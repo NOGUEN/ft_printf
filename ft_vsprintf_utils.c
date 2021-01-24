@@ -6,13 +6,19 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 10:43:38 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/23 11:15:37 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/24 14:02:18 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*ft_vsprintf_percentsign(const char *fmt, char **str)
+int		g_flags;
+int		g_field_width;
+int		g_precision;
+int		g_qualifier;
+int		g_checker;
+
+char		*ft_vsprintf_percentsign(char *fmt, char *str)
 {
 	char	*tmp;
 
@@ -31,40 +37,36 @@ char		*ft_vsprintf_percentsign(const char *fmt, char **str)
 
 char		*ft_vsprintf_flag(char *tmp)
 {
-	static int		flags;
-
-	flags = 0;
-	while (is_flag(++tmp))
+	g_flags = 0;
+	while (ft_isflag(++tmp))
 	{
 		if (*tmp == '-')
-			flags |= LEFT;
+			g_flags |= LEFT;
 		else if (*tmp == '+')
-			flags |= PLUS;
+			g_flags |= PLUS;
 		else if (*tmp == ' ')
-			flags |= SPACE;
+			g_flags |= SPACE;
 		else if (*tmp == '#')
-			flags |= SPECIAL;
+			g_flags |= SPECIAL;
 		else if (*tmp == '0')
-			flags |= ZEROPAD;
+			g_flags |= ZEROPAD;
 	}
 	return (tmp);
 }
 
 char		*ft_vsprintf_width(char *tmp, va_list args)
 {
-	static int		field_width;
-
-	field_width = -1;
+	g_field_width = -1;
 	if (ft_isdigit(*tmp))
-		field_width = skip_atoi(&tmp);
-	else if (*fmt == '*')
+		g_field_width = ft_skip_atoi(&tmp);
+	else if (*tmp == '*')
 	{
 		++tmp;
-		field_width = va_arg(args, int);
-		if (field_width < 0)
+		g_field_width = va_arg(args, int);
+		if (g_field_width < 0)
 		{
-			field_width = -field_width;
-			flags |= LEFT;
+			g_field_width = -g_field_width;
+			g_flags |= LEFT;
 		}
 	}
 	return (tmp);
@@ -72,34 +74,31 @@ char		*ft_vsprintf_width(char *tmp, va_list args)
 
 char		*ft_vsprintf_precision(char *tmp, va_list args)
 {
-	static int		precision = -1;
-
+	g_precision = -1;
 	if (*tmp == '.')
 	{
 		++tmp;
-		if (ft_isdigit(*fmt))
+		if (ft_isdigit(*tmp))
 		{
-			precision = ft_skip_atoi(&fmt);
+			g_precision = ft_skip_atoi(&tmp);
 		}
 		else if (*tmp == '*')
 		{
 			++tmp;
-			precision = va_arg(args, int);
+			g_precision = va_arg(args, int);
 		}
 	}
-	if (precision < 0)
-		precision = 0;
+	if (g_precision < 0)
+		g_precision = 0;
 	return (tmp);
 }
 
 char		*ft_vsprintf_conversion(char *tmp)
 {
-	static int	qualifier;
-
-	qualifier = -1;
-	if (*fmt == 'h' || *fmt == '1' || *fmt == 'L')
+	g_qualifier = -1;
+	if (*tmp == 'h' || *tmp == '1' || *tmp == 'L')
 	{
-		qualifier = *tmp;
+		g_qualifier = *tmp;
 		++tmp;
 	}
 	return (tmp);

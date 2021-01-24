@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vsprintf_s.c                                    :+:      :+:    :+:   */
+/*   ft_defaultact.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/23 11:41:26 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/24 13:49:43 by nogeun           ###   ########.fr       */
+/*   Created: 2021/01/24 14:02:36 by nogeun            #+#    #+#             */
+/*   Updated: 2021/01/24 18:11:28 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_vsprintf_s(char *tmp, char *str, va_list args)
+void		ft_defaultact(char *str, char *tmp)
 {
-	const char	*s;
-	int			len;
-	int			i;
-
-	if (*tmp == 's')
+	if (g_checker == 0)
 	{
-        g_checker = 1;
-		s = va_arg(args, char *);
-		len = ft_strnlen(s, g_precision);
-		if (!(g_flags & LEFT))
-			while (len < g_field_width--)
-				*str++ = ' ';
-		i = 0;
-		while (i < len)
-		{
-			*str++ = *s++;
-			i++;
-		}
-		while (len < g_field_width--)
-			*str++ = ' ';
+		*str++ = '%';
+		if (*tmp)
+			*str++ = *tmp;
+		else
+			--tmp;
 	}
 }

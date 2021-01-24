@@ -6,13 +6,13 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:44:54 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/23 10:53:08 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/24 13:53:02 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_puts(const char *str)
+void	ft_puts(char *str)
 {
 	while (*str != '\0')
 	{

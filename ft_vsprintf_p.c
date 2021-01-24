@@ -6,20 +6,21 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 11:51:04 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/23 11:55:28 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/24 13:49:53 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_vsprintf_p()
+void		ft_vsprintf_p(char *tmp, char *str)
 {
-	if (field_width == -1)
+	if (*tmp == 'p')
 	{
-		field_width = 2 * sizeof(void *);
-		flags |= ZEROPAD;
+        g_checker = 1;
+		if (g_field_width == -1)
+		{
+			g_field_width = 2 * sizeof(void *);
+			g_flags |= ZEROPAD;
+		}
 	}
-	str = number(str,
-			(unsigned long)va_arg(args, void *), 16,
-			field_width, precision, flags);
 }

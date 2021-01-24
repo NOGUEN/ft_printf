@@ -2,5 +2,5 @@
 
 int main()
 {
-	ft_puts("123");
+	ft_printf("123");
 }

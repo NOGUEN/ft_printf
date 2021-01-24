@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vsprintf_s.c                                    :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/23 11:41:26 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/24 13:49:43 by nogeun           ###   ########.fr       */
+/*   Created: 2021/01/24 12:12:54 by nogeun            #+#    #+#             */
+/*   Updated: 2021/01/24 13:53:53 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_vsprintf_s(char *tmp, char *str, va_list args)
+int		ft_strnlen(const char *str, int n)
 {
-	const char	*s;
-	int			len;
-	int			i;
+	char	*tmp;
+	int		i;
 
-	if (*tmp == 's')
+	i = -1;
+	tmp = (char *)str;
+	while (*tmp && ++i < n)
 	{
-        g_checker = 1;
-		s = va_arg(args, char *);
-		len = ft_strnlen(s, g_precision);
-		if (!(g_flags & LEFT))
-			while (len < g_field_width--)
-				*str++ = ' ';
-		i = 0;
-		while (i < len)
-		{
-			*str++ = *s++;
-			i++;
-		}
-		while (len < g_field_width--)
-			*str++ = ' ';
+		tmp++;
 	}
+	return (i);
 }

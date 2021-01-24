@@ -6,16 +6,17 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 09:12:58 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/23 09:14:52 by hnoh             ###   ########.fr       */
+/*   Updated: 2021/01/24 13:53:16 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_skip_atoi(const char **s)
+int		ft_skip_atoi(char **s)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	while (ft_isdigit(**s))
 	{
 		i = i * 10 + *((*s)++) - '0';
