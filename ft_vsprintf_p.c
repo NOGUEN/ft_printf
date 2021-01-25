@@ -6,13 +6,13 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 11:51:04 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/24 13:49:53 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/24 22:00:37 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_vsprintf_p(char *tmp, char *str)
+void		ft_vsprintf_p(char *tmp)
 {
 	if (*tmp == 'p')
 	{

@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:08:39 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/24 14:09:46 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/24 22:01:13 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		ft_vsprintf_set(char *fmt, char *tmp,
 		g_checker = 0;
 		ft_vsprintf_c(tmp, str, args);
 		ft_vsprintf_s(tmp, str, args);
-		ft_vsprintf_p(tmp, str);
+		ft_vsprintf_p(tmp);
 		ft_vsprintf_d(tmp);
 		ft_vsprintf_i(tmp);
 		ft_vsprintf_u(tmp);
@@ -43,6 +43,8 @@ int			ft_vsprintf(char *buf, char *fmt, va_list args)
 	char 			*str;
 	unsigned long	num;
 
+	str = NULL;
+	tmp = NULL;
 	ft_vsprintf_set(fmt, tmp, str, args);
 	if (g_qualifier == 'l')
 		num = va_arg(args, unsigned long);

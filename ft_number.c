@@ -6,7 +6,7 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 12:30:56 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/24 18:22:15 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/24 21:57:13 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char		*g_digits;
 char		g_tmp[66];
 char		g_c;
 char		g_sign;
-char		g_i;
+int			g_i;
 
-void	ft_number2(char *str, long num);
+void	ft_number2(char *str);
 
 char	*ft_number(char *str, long num)
 {
@@ -41,11 +41,11 @@ char	*ft_number(char *str, long num)
 	if (g_i > g_precision)
 		g_precision = g_i;
 	g_field_width -= g_precision;
-	ft_number2(str, num);
+	ft_number2(str);
 	return (str);
 }
 
-void	ft_number2(char *str, long num)
+void	ft_number2(char *str)
 {
 	if (!(g_flags & (ZEROPAD + LEFT)))
 		while (g_field_width-- > 0)

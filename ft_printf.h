@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 10:53:56 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/24 18:21:51 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/24 22:00:59 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ extern char		*g_digits;
 extern char		g_tmp[66];
 extern char		g_c;
 extern char		g_sign;
-extern char		g_i;
+extern int		g_i;
 
 int			ft_printf(const char *format, ...);
 
@@ -69,7 +69,7 @@ char		*ft_vsprintf_conversion(char *tmp);
 
 void		ft_vsprintf_c(char *tmp, char *str, va_list args);
 void		ft_vsprintf_s(char *tmp, char *str, va_list args);
-void		ft_vsprintf_p(char *tmp, char *str);
+void		ft_vsprintf_p(char *tmp);
 void		ft_vsprintf_d(char *tmp);
 void		ft_vsprintf_i(char *tmp);
 void		ft_vsprintf_u(char *tmp);
@@ -92,6 +92,6 @@ void		if_SIGN(long num);
 void		if_SPECIAL();
 void		if_SPECIAL2(char *str);
 
-void		ft_number2(char *str, long num);
+void		ft_number2(char *str);
 char		*ft_number(char *str, long num);
 #endif
