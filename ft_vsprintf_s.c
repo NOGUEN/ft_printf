@@ -6,7 +6,7 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 11:41:26 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/24 13:49:43 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/25 12:28:29 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_vsprintf_s(char *tmp, char *str, va_list args)
 {
-	const char	*s;
+	char		*s;
 	int			len;
 	int			i;
 

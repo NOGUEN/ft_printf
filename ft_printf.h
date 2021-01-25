@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 10:53:56 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/24 22:00:59 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/25 12:00:06 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,9 @@ extern int		g_i;
 
 int			ft_printf(const char *format, ...);
 
-int			ft_vsprintf(char *buf, char *fmt, va_list args);
-char		*ft_vsprintf_percentsign(char *fmt, char *str);
+int			ft_vsprintf(char *buf, char *tmp, va_list args);
+void		ft_vsprintf_set(char *tmp, char *str, va_list args);
+char		*ft_vsprintf_percentsign(char *tmp, char *str);
 char		*ft_vsprintf_flag(char *tmp);
 char		*ft_vsprintf_width(char *tmp, va_list args);
 char		*ft_vsprintf_precision(char *tmp, va_list args);

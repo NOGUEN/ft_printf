@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 10:43:38 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/24 14:02:18 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/25 12:04:15 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,8 @@ int		g_precision;
 int		g_qualifier;
 int		g_checker;
 
-char		*ft_vsprintf_percentsign(char *fmt, char *str)
+char		*ft_vsprintf_percentsign(char *tmp, char *str)
 {
-	char	*tmp;
-
-	tmp = (char *)fmt;
 	while (*tmp != '%')
 	{
 		*str++ = *tmp;
@@ -50,6 +47,8 @@ char		*ft_vsprintf_flag(char *tmp)
 			g_flags |= SPECIAL;
 		else if (*tmp == '0')
 			g_flags |= ZEROPAD;
+		else
+			return (tmp);
 	}
 	return (tmp);
 }
