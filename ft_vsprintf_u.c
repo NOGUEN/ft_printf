@@ -6,16 +6,15 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 11:50:43 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/24 13:50:20 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/28 11:44:10 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_vsprintf_u(char *tmp)
+void	ft_vsprintf_u(char **tmp)
 {
-	g_base = 10;
-	if (*tmp == 'u')
+	if (**tmp == 'u')
 	{
         g_checker = 1;
 		g_base = 10;

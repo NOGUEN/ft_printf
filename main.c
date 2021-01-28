@@ -1,6 +1,8 @@
 #include "ft_printf.h"
+#include "stdio.h"
 
-int main()
+int main ()
 {
-	ft_printf("123");
+	printf("\n");
+	ft_printf("\n");
 }

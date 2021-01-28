@@ -1,65 +1,100 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_number.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 12:30:56 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/24 21:57:13 by nogeun           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
-int			g_locase;
-char		*g_digits;
-char		g_tmp[66];
-char		g_c;
-char		g_sign;
-int			g_i;
-
-void	ft_number2(char *str);
-
-char	*ft_number(char *str, long num)
+char *ft_number(char **str, long num, int base, int size, int precision,
+		    int type)
 {
-	g_digits = "0123456789ABCDEF";
-	g_locase = (g_flags & SMALL);
-	if_LEFT();
-	if (g_base < 2 || g_base > 16)
-		return (NULL);
-	g_c = (g_flags & ZEROPAD) ? '0' : ' ';
-	g_sign = 0;
-	if_SIGN(num);
-	if_SPECIAL();
-	g_i = 0;
+	/* we are called with base 8, 10 or 16, only, thus don't need "G..."  */
+	const char *digits;
+	char tmp[66];
+	char c, sign, locase;
+	int i;
+
+	digits = "0123456789ABCDEF";
+	locase = (type & SMALL);
+	if (type & LEFT)
+		type &= ~ZEROPAD;
+	if (base < 2 || base > 16)
+		return NULL;
+	c = (type & ZEROPAD) ? '0' : ' ';
+	sign = 0;
+	if (type & SIGN) {
+		if (num < 0) {
+			sign = '-';
+			num = -num;
+			size--;
+		} else if (type & PLUS) {
+			sign = '+';
+			size--;
+		} else if (type & SPACE) {
+			sign = ' ';
+			size--;
+		}
+	}
+	if (type & SPECIAL) {
+		if (base == 16)
+			size -= 2;
+		else if (base == 8)
+			size--;
+	}
+	i = 0;
 	if (num == 0)
-		g_tmp[g_i++] = '0';
+	{
+		tmp[i] = '0';
+		i++;
+	}
 	else
 		while (num != 0)
-			g_tmp[g_i++] = (g_digits[ft_do_div(num, g_base)] | g_locase);
-	if (g_i > g_precision)
-		g_precision = g_i;
-	g_field_width -= g_precision;
-	ft_number2(str);
-	return (str);
-}
-
-void	ft_number2(char *str)
-{
-	if (!(g_flags & (ZEROPAD + LEFT)))
-		while (g_field_width-- > 0)
-			*str++ = ' ';
-	if (g_sign)
-		*str++ = g_sign;
-	if_SPECIAL2(str);
-	if (!(g_flags & LEFT))
-		while (g_field_width-- > 0)
-			*str++ = g_c;
-	while (g_i < g_precision--)
-		*str++ = '0';
-	while (g_i-- > 0)
-		*str++ = g_tmp[g_i];
-	while (g_field_width-- > 0)
-		*str++ = ' ';
+		{
+			tmp[i] = (digits[ft_do_div(&num, base)] | locase);
+			i++;
+		}
+	if (i > precision)
+		precision = i;
+	size -= precision;
+	if (!(type & (ZEROPAD + LEFT)))
+		while (size-- > i)
+		{
+			**str = ' ';
+			(*str)++;
+		}
+	if (sign)
+	{
+		**str = sign;
+		(*str)++;
+	}
+	if (type & SPECIAL) {
+		if (base == 8)
+		{
+			**str = '0';
+			(*str)++;
+		}
+		else if (base == 16) {
+			**str = '0';
+			(*str)++;
+			**str = ('X' | locase);
+			(*str)++;
+		}
+	}
+	if (!(type & LEFT))
+		while (size-- > 0)
+		{
+			**str = c;
+			(*str)++;
+		}
+	while (i < precision--)
+	{
+		**str = '0';
+		(*str)++;
+	}
+	while (i-- > 0)
+	{
+		**str = tmp[i];
+		(*str)++;
+	}
+	while (size-- > 0)
+	{
+		**str = ' ';
+		(*str)++;
+	}
+	return (*str);
 }

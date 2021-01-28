@@ -6,22 +6,23 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 12:12:54 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/24 13:53:53 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/27 11:58:32 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_strnlen(const char *str, int n)
+size_t		ft_strnlen(char *s, size_t maxlen)
 {
-	char	*tmp;
-	int		i;
+	size_t len;
 
-	i = -1;
-	tmp = (char *)str;
-	while (*tmp && ++i < n)
+	len = 0;
+	while (len < maxlen)
 	{
-		tmp++;
+		if (!*s)
+			break;
+		s++;
+		len++;
 	}
-	return (i);
+	return (len);
 }

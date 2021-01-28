@@ -6,16 +6,17 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 11:59:12 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/24 13:50:42 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/28 11:44:32 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_vsprintf_bx(char *tmp)
+void	ft_vsprintf_bx(char **tmp)
 {
-	if (*tmp == 'X')
+	if (**tmp == 'X')
 	{
+		g_checker = 1;
 		g_base = 16;
 	}
 }

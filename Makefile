@@ -6,7 +6,7 @@
 #    By: nogeun <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/24 21:41:47 by nogeun            #+#    #+#              #
-#    Updated: 2021/01/24 22:03:12 by nogeun           ###   ########.fr        #
+#    Updated: 2021/01/27 11:19:34 by nogeun           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ SRCS	=		ft_defaultact.c		\
 				ft_isdigit.c		\
 				ft_isflag.c			\
 				ft_number.c			\
-				ft_number_utils.c	\
 				ft_printf.c			\
 				ft_puts.c			\
 				ft_skip_atoi.c		\
@@ -31,7 +30,6 @@ SRCS	=		ft_defaultact.c		\
 				ft_vsprintf_u.c		\
 				ft_vsprintf_utils.c	\
 				ft_vsprintf_x.c		\
-				main.c
 
 OBJS	=		$(SRCS:.c=.o)
 

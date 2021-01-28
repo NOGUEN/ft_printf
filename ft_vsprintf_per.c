@@ -6,17 +6,17 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 12:23:56 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/24 18:12:24 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/01/28 11:44:45 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_vsprintf_per(char *tmp, char *str)
+void	ft_vsprintf_per(char **tmp, char **str)
 {
-	if (*tmp == '%')
+	if (**tmp == '%')
 	{
-        g_checker = 1;
-		*str++ = '%';
+        g_checker = 2;
+		**str++ = '%';
 	}
 }
