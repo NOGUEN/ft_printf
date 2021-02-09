@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 10:53:56 by hnoh              #+#    #+#             */
-/*   Updated: 2021/02/09 14:39:57 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/09 19:13:16 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int			ft_vsprintf(char *buf, char *tmp, va_list args);
 void		ft_vsprintf2(char **tmp);
 void		ft_vsprintf_put(char **str, char **tmp);
 void		ft_vsprintf_set(char **tmp);
-void		ft_vsprintf_setstr(char **str, char **buf);
+void		ft_vsprintf_setstr(char **str, char *buf);
 
 void		ft_vsprintf_asterisk(char **tmp, va_list *ap);
 void		ft_vsprintf_digit(char **tmp);

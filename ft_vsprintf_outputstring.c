@@ -6,7 +6,7 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:15:29 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/09 18:52:46 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/09 19:11:12 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,8 @@ void		ft_outputstring3(char **str, int *i, char *digits)
 			((g_flags & BIGFORMATFLAG) && (g_flags & LEADZEROFLAG)
 			&& (g_flags & POINTFLAG) && !(g_flags & LEFTFORMATFLAG)
 			&& !(g_flags & MINUSPREFLAG)))
-		while (g_format_num-- > 0)	
-		{
-			*(*str)++ = ' ';
-			g_cchecker++;
-		
-		}
+		while (g_format_num-- > 0)
+			ft_outputchar(str, ' ');
 }
 
 void		ft_outputstring4(char **str, char *sign, char *c)

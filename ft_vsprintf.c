@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:08:39 by hnoh              #+#    #+#             */
-/*   Updated: 2021/02/09 18:50:38 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/09 19:08:44 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void		ft_vsprintf_put(char **str, char **tmp)
 	{
 		if (**tmp == '%' || g_checker == 2)
 			break ;
-		ft_outputchar(str, *(*tmp)++);
+		*(*str)++ = *(*tmp)++;
+		g_cchecker++;
 	}
 	ft_vsprintf_set(tmp);
 }
@@ -69,13 +70,13 @@ void		ft_vsprintf_set(char **tmp)
 		g_flags = 0;
 		g_format_num = 0;
 		g_precision = 0;
-		g_base = 0;
+		g_base = 10;
 	}
 }
 
-void		ft_vsprintf_setstr(char **str, char **buf)
+void		ft_vsprintf_setstr(char **str, char *buf)
 {
-	*str = *buf;
+	*str = buf;
 	g_checker = 0;
 	g_cchecker = 0;
 	g_exitloop = 0;
@@ -85,29 +86,10 @@ int			ft_vsprintf(char *buf, char *tmp, va_list ap)
 {
 	char				*str;
 
-	str = buf;
-	g_checker = 0;
-	g_cchecker = 0;
+	ft_vsprintf_setstr(&str, buf);
 	while (1)
 	{
-		// find %(1)
-		while (*tmp != 0)
-		{
-			if (*tmp == '%' || g_checker == 2)
-				break ;
-			*str++ = *tmp++;
-			g_cchecker++;
-		}
-		if (g_checker != 2)
-		{
-			if (*tmp == 0)
-				break ;
-			g_flags = 0;
-			g_format_num = 0;
-			g_precision = 0;
-			g_base = 10;
-		}
-		// next_format (2)
+		ft_vsprintf_put(&str, &tmp);
 		tmp++;
 		if (*tmp == 0)
 			break ;
@@ -118,7 +100,6 @@ int			ft_vsprintf(char *buf, char *tmp, va_list ap)
 				tmp++;
 			continue ;
 		}
-		// output_string (3)
 		else if (g_checker == 3)
 		{
 			tmp++;

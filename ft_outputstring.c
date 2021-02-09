@@ -6,7 +6,7 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 14:04:45 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/09 14:51:22 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/09 19:12:09 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_outputstring(char **str)
 	int		i;
 	char	c;
 	char	sign;
-	char 	*digits;
+	char	*digits;
 
 	if (g_flags & CAPSFLAG)
 		digits = "0123456789ABCDEF";
