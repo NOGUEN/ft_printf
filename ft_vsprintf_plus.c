@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_skip_atoi.c                                     :+:      :+:    :+:   */
+/*   ft_vsprintf_plus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/23 09:12:58 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/28 11:59:22 by nogeun           ###   ########.fr       */
+/*   Created: 2021/02/01 09:47:19 by nogeun            #+#    #+#             */
+/*   Updated: 2021/02/04 11:19:35 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_skip_atoi(char **s)
+void	ft_vsprintf_plus(char **tmp)
 {
-	int	i;
-
-	i = 0;
-	while (ft_isdigit(**s))
+	if (**tmp == '+')
 	{
-		i = i * 10 + *((*s)++) - '0';
+		g_flags |= SHOWSIGNFLAG;
+		g_checker = 1;
 	}
-	return (i);
 }

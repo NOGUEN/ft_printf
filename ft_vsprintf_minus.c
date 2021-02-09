@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_defaultact.c                                    :+:      :+:    :+:   */
+/*   ft_vsprintf_minus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 14:02:36 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/08 12:13:56 by nogeun           ###   ########.fr       */
+/*   Created: 2021/02/01 09:44:54 by nogeun            #+#    #+#             */
+/*   Updated: 2021/02/04 23:21:52 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_defaultact(char **tmp, char **str)
+void	ft_vsprintf_minus(char **tmp)
 {
-	if (g_checker == 0)
+	if (**tmp == '-')
 	{
-		*(*str)++ = '%';
-		*(*str)++ = **tmp;
-		g_checker = 1;
+		g_flags |= LEFTFORMATFLAG;
+        g_checker = 2;
 	}
 }

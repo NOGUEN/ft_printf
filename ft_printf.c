@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 10:57:32 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/28 13:14:31 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/08 19:18:38 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int		ft_printf(const char *format, ...)
 {
-	char	printf_buf[1024];
-	va_list	args;
-	int		printed;
+	va_list	ap;
+	int		err;
 	char	*tmp;
+	char	printf_buf[10000];
 
-	va_start(args, format);
+	va_start(ap, format);
 	tmp = (char *)format;
-	printed = ft_vsprintf(printf_buf, tmp, args);
-	va_end(args);
+	err = ft_vsprintf(printf_buf, tmp, ap);
+	va_end(ap);
 	ft_puts(printf_buf);
-	return (printed);
+	return (err);
 }

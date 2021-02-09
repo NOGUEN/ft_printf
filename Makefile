@@ -6,30 +6,33 @@
 #    By: nogeun <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/24 21:41:47 by nogeun            #+#    #+#              #
-#    Updated: 2021/01/27 11:19:34 by nogeun           ###   ########.fr        #
+#    Updated: 2021/02/05 10:15:40 by nogeun           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=		ft_defaultact.c		\
-				ft_do_div.c			\
 				ft_isdigit.c		\
-				ft_isflag.c			\
-				ft_number.c			\
 				ft_printf.c			\
 				ft_puts.c			\
-				ft_skip_atoi.c		\
+				ft_strlen.c			\
 				ft_strnlen.c		\
 				ft_vsprintf.c		\
+				ft_vsprintf_asterisk.c	\
 				ft_vsprintf_bx.c	\
 				ft_vsprintf_c.c		\
 				ft_vsprintf_d.c		\
+				ft_vsprintf_digit.c	\
+				ft_vsprintf_hash.c	\
 				ft_vsprintf_i.c		\
+				ft_vsprintf_minus.c	\
 				ft_vsprintf_p.c		\
+				ft_vsprintf_plus.c	\
+				ft_vsprintf_point.c	\
 				ft_vsprintf_per.c	\
 				ft_vsprintf_s.c		\
 				ft_vsprintf_u.c		\
-				ft_vsprintf_utils.c	\
 				ft_vsprintf_x.c		\
+				ft_do_div.c			\
 
 OBJS	=		$(SRCS:.c=.o)
 

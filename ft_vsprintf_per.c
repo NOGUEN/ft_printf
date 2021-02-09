@@ -6,7 +6,7 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 12:23:56 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/28 11:44:45 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/08 19:39:43 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,17 @@
 
 void	ft_vsprintf_per(char **tmp, char **str)
 {
+	char		c;
+
 	if (**tmp == '%')
 	{
-        g_checker = 2;
-		**str++ = '%';
+		c = (g_flags & LEADZEROFLAG) ? '0' : ' ';
+		if (!(g_flags & LEFTFORMATFLAG))
+			while (--g_format_num > 0)
+				*(*str)++ = c;
+		*(*str)++ = **tmp;
+		while (--g_format_num > 0)
+			*(*str)++ = ' ';
+		g_checker = 1;
 	}
 }

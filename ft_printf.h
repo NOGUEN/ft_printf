@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 10:53:56 by hnoh              #+#    #+#             */
-/*   Updated: 2021/01/28 13:14:20 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/08 12:01:12 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,75 +18,61 @@
 # include <unistd.h>
 # include <stdio.h>
 
-# ifndef ZEROPAD
-#  define ZEROPAD	1
-# endif
+#  define LONGFLAG			0x00000001
+#  define LONGLONGFLAG		0x00000002
+#  define HALFFLAG			0x00000004
+#  define HALFHALFFLAG		0x00000008
+#  define SIZETFLAG			0x00000010
+#  define ALTFLAG			0x00000020
+#  define CAPSFLAG			0x00000040
+#  define SHOWSIGNFLAG		0x00000080
+#  define SIGNEDFLAG	 	0x00000100
+#  define LEFTFORMATFLAG 	0x00000200
+#  define LEADZEROFLAG 		0x00000400
+#  define POINTFLAG			0x00000800
+#  define ASTERISKFLAG		0x00001000
+#  define MINUSPREFLAG		0x00002000
+#  define PREZEROFLAG		0x00004000
+#  define BIGFORMATFLAG		0x00008000
+#  define POINTERFLAG		0x00010000
 
-# ifndef SIGN
-#  define SIGN	2
-# endif
-
-# ifndef PLUS
-#  define PLUS	4
-# endif
-
-# ifndef SPACE
-#  define SPACE	8
-# endif
-
-# ifndef LEFT
-#  define LEFT	16
-# endif
-
-# ifndef SMALL
-#  define SMALL	32
-# endif
-
-# ifndef SPECIAL
-#  define SPECIAL	64
-# endif
-
-extern int		g_flags;
-extern int		g_field_width;
-extern int		g_precision;
-extern int		g_qualifier;
-extern int		g_base;
-extern int		g_checker;
+extern int					g_uc;
+extern int					g_flags;
+extern int					g_format_num;
+extern int					g_precision;
+extern int					g_exitloop;
+extern int					g_checker;
+extern long					g_n;
+extern char					g_tmp[100];
+extern int					g_base;
 
 int			ft_printf(const char *format, ...);
 
 int			ft_vsprintf(char *buf, char *tmp, va_list args);
-char		*ft_vsprintf_set(char **tmp, va_list *args);
-char		*ft_vsprintf_flag(char **tmp);
-char		*ft_vsprintf_width(char **tmp, va_list *args);
-char		*ft_vsprintf_precision(char **tmp, va_list *args);
-char		*ft_vsprintf_conversion(char **tmp);
 
-void		ft_vsprintf_c(char **tmp, char **str, va_list *args);
-void		ft_vsprintf_s(char **tmp, char **str, va_list *args);
-void		ft_vsprintf_p(char **tmp, char **str, va_list *args);
-void		ft_vsprintf_d(char **tmp);
-void		ft_vsprintf_i(char **tmp);
-void		ft_vsprintf_u(char **tmp);
-void		ft_vsprintf_x(char **tmp);
-void		ft_vsprintf_bx(char **tmp);
+void		ft_vsprintf_asterisk(char **tmp, va_list *ap);
+void		ft_vsprintf_digit(char **tmp);
+void		ft_vsprintf_point(char **tmp);
+void		ft_vsprintf_minus(char **tmp);
+void		ft_vsprintf_plus(char **tmp);
+void		ft_vsprintf_hash(char **tmp);
+void		ft_vsprintf_c(char **tmp, char **str, va_list *ap);
+void		ft_vsprintf_s(char **tmp, va_list *ap, char **s);
+void		ft_vsprintf_p(char **tmp, va_list *ap);
+void		ft_vsprintf_d(char **tmp, va_list *ap);
+void		ft_vsprintf_i(char **tmp, va_list *ap);
+void		ft_vsprintf_u(char **tmp, va_list *ap);
+void		ft_vsprintf_x(char **tmp, char **str, va_list *ap);
+void		ft_vsprintf_bx(char **tmp, char **str, va_list *ap);
 void		ft_vsprintf_per(char **tmp, char **str);
-void		ft_defaultact(char **str, char **tmp);
+void		ft_defaultact(char **tmp, char **str);
 
-int			ft_skip_atoi(char **s);
-
-size_t		ft_strnlen(char *s, size_t maxlen);
+char		*ft_vsprintf_ltos(int len);
 
 int			ft_do_div(long *n, int base);
-int			ft_isflag(char *p);
+size_t		ft_strlen(const char *s);
+size_t		ft_strnlen(char *s,  size_t maxlen);
 int			ft_isdigit(int c);
 void		ft_puts(char *str);
 
-void		if_LEFT();
-void		if_SIGN(long num);
-void		if_SPECIAL();
-void		if_SPECIAL2(char *str);
-
-char *ft_number(char **str, long num, int base, int size, int precision,
-		    int type);
 #endif

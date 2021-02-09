@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_defaultact.c                                    :+:      :+:    :+:   */
+/*   ft_vsprintf_digit.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 14:02:36 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/08 12:13:56 by nogeun           ###   ########.fr       */
+/*   Created: 2021/01/31 12:29:14 by nogeun            #+#    #+#             */
+/*   Updated: 2021/02/06 11:51:23 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_defaultact(char **tmp, char **str)
+void		ft_vsprintf_digit(char **tmp)
 {
-	if (g_checker == 0)
+	if (ft_isdigit(**tmp))
 	{
-		*(*str)++ = '%';
-		*(*str)++ = **tmp;
-		g_checker = 1;
+		if (**tmp == '0' && g_format_num == 0)
+			g_flags |= LEADZEROFLAG;
+		if (g_flags & POINTFLAG)
+		{
+			g_precision *= 10;
+			g_precision += **tmp - '0';
+		}
+		else
+		{
+			g_format_num *= 10;
+			g_format_num += **tmp - '0';
+		}
+		g_checker = 2;
 	}
 }
