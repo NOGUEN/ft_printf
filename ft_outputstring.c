@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vsprintf_c.c                                    :+:      :+:    :+:   */
+/*   ft_outputstring.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/23 11:30:09 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/09 14:13:41 by nogeun           ###   ########.fr       */
+/*   Created: 2021/02/09 14:04:45 by nogeun            #+#    #+#             */
+/*   Updated: 2021/02/09 14:51:22 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_vsprintf_c(char **tmp, char **str, va_list *ap)
+void	ft_outputstring(char **str)
 {
-	int		t;
+	int		i;
+	char	c;
+	char	sign;
+	char 	*digits;
 
-	t = 0;
-	if (**tmp == 'c')
-	{
-		if (!(g_flags & LEFTFORMATFLAG))
-			while (--g_format_num > 0)
-				ft_outputchar(str, ' ');
-		t = va_arg(*ap, int);
-		if (t == 0)
-		{
-			*(*str)++ = 7;
-			g_nullchecker[g_cchecker] = 1;
-			g_cchecker++;
-		}
-		else
-			ft_outputchar(str, t);
-		while (--g_format_num > 0)
-			ft_outputchar(str, ' ');
-		g_checker = 1;
-	}
+	if (g_flags & CAPSFLAG)
+		digits = "0123456789ABCDEF";
+	else
+		digits = "0123456789abcdef";
+	ft_outputstring1(&c);
+	ft_outputstring2(&sign);
+	ft_outputstring3(str, &i, digits);
+	ft_outputstring4(str, &sign, &c);
+	ft_outputstring5(str, &i);
 }

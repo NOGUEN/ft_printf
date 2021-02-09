@@ -6,7 +6,7 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 11:59:12 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/08 11:24:45 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/09 12:56:56 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ void	ft_vsprintf_bx(char **tmp, char **str, va_list *ap)
 		if (g_flags & ALTFLAG)
 		{
 			*(*str)++ = '0';
-			*(*str)++ = (g_flags & CAPSFLAG) ? 'X' :'x';
+			g_cchecker++;
+			*(*str)++ = (g_flags & CAPSFLAG) ? 'X' : 'x';
 		}
 		g_base = 16;
 		g_checker = 3;
-	}	
+	}
 }

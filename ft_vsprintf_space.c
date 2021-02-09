@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vsprintf_c.c                                    :+:      :+:    :+:   */
+/*   ft_vsprintf_space.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/23 11:30:09 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/09 14:13:41 by nogeun           ###   ########.fr       */
+/*   Created: 2021/02/09 09:29:57 by nogeun            #+#    #+#             */
+/*   Updated: 2021/02/09 09:31:44 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_vsprintf_c(char **tmp, char **str, va_list *ap)
+void	ft_vsprintf_space(char **tmp)
 {
-	int		t;
-
-	t = 0;
-	if (**tmp == 'c')
+	if (**tmp == ' ')
 	{
-		if (!(g_flags & LEFTFORMATFLAG))
-			while (--g_format_num > 0)
-				ft_outputchar(str, ' ');
-		t = va_arg(*ap, int);
-		if (t == 0)
-		{
-			*(*str)++ = 7;
-			g_nullchecker[g_cchecker] = 1;
-			g_cchecker++;
-		}
-		else
-			ft_outputchar(str, t);
-		while (--g_format_num > 0)
-			ft_outputchar(str, ' ');
-		g_checker = 1;
+		g_flags |= SPACEFLAG;
+		g_checker = 2;
 	}
 }

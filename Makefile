@@ -6,7 +6,7 @@
 #    By: nogeun <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/24 21:41:47 by nogeun            #+#    #+#              #
-#    Updated: 2021/02/05 10:15:40 by nogeun           ###   ########.fr        #
+#    Updated: 2021/02/09 14:39:11 by nogeun           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS	=		ft_defaultact.c		\
 				ft_strlen.c			\
 				ft_strnlen.c		\
 				ft_vsprintf.c		\
+				ft_vsprintf2.c		\
 				ft_vsprintf_asterisk.c	\
 				ft_vsprintf_bx.c	\
 				ft_vsprintf_c.c		\
@@ -32,7 +33,12 @@ SRCS	=		ft_defaultact.c		\
 				ft_vsprintf_s.c		\
 				ft_vsprintf_u.c		\
 				ft_vsprintf_x.c		\
+				ft_vsprintf_o.c		\
+				ft_vsprintf_space.c	\
 				ft_do_div.c			\
+				ft_vsprintf_outputstring.c	\
+				ft_outputstring.c	\
+				ft_outputchar.c		\
 
 OBJS	=		$(SRCS:.c=.o)
 

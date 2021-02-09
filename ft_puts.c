@@ -5,26 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/23 10:44:54 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/08 19:30:16 by nogeun           ###   ########.fr       */
+/*   Created: 2021/02/09 10:04:41 by nogeun            #+#    #+#             */
+/*   Updated: 2021/02/09 12:43:28 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_puts(char *str)
+void		ft_puts(char *str)
 {
-	char	*c;
 	int		i;
 
 	i = 0;
-	c = str;
-	while (c[i])
+	while (str[i])
 	{
-		if ((int)c[i] == 127)
-			write(1, 0, 1);
+		if (str[i] == 7 && g_nullchecker[i] == 1)
+			write(STDOUT_FILENO, "\x00", 1);
 		else
-			write(1, &c[i], 1);
+			write(STDOUT_FILENO, &str[i], 1);
 		i++;
 	}
 }

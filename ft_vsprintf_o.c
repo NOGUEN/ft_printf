@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vsprintf_x.c                                    :+:      :+:    :+:   */
+/*   ft_vsprintf_o.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 11:51:58 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/09 10:21:53 by nogeun           ###   ########.fr       */
+/*   Created: 2021/02/09 09:44:31 by nogeun            #+#    #+#             */
+/*   Updated: 2021/02/09 09:53:20 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_vsprintf_x(char **tmp, char **str, va_list *ap)
+void		ft_vsprintf_o(char **tmp, va_list *ap)
 {
-	if (**tmp == 'x')
+	if (**tmp == 'o')
 	{
 		if (g_flags & LONGLONGFLAG)
 			g_n = va_arg(*ap, unsigned long long);
@@ -28,13 +28,7 @@ void		ft_vsprintf_x(char **tmp, char **str, va_list *ap)
 			g_n = va_arg(*ap, size_t);
 		else
 			g_n = va_arg(*ap, unsigned int);
-		if (g_flags & ALTFLAG)
-		{
-			*(*str)++ = '0';
-			g_cchecker++;
-			*(*str)++ = (g_flags & CAPSFLAG) ? 'X' : 'x';
-		}
-		g_base = 16;
+		g_base = 8;
 		g_checker = 3;
 	}
 }

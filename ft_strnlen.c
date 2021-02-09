@@ -6,7 +6,7 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 12:12:54 by nogeun            #+#    #+#             */
-/*   Updated: 2021/01/27 11:58:32 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/09 12:59:15 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ size_t		ft_strnlen(char *s, size_t maxlen)
 	while (len < maxlen)
 	{
 		if (!*s)
-			break;
+			break ;
 		s++;
 		len++;
 	}

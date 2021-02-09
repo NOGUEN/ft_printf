@@ -6,7 +6,7 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 12:46:51 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/06 09:38:13 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/09 13:13:31 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		ft_vsprintf_asterisk(char **tmp, va_list *ap)
 	{
 		if (g_flags & POINTFLAG)
 		{
-			g_precision = va_arg(*ap ,int);
+			g_precision = va_arg(*ap, int);
 			if (g_precision < 0)
 			{
 				g_precision = 0;
