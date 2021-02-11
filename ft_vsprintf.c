@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:08:39 by hnoh              #+#    #+#             */
-/*   Updated: 2021/02/11 09:50:53 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/12 07:21:14 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int					g_checker;
 long				g_n;
 char				g_tmp[100];
 int					g_base;
-int					g_nullchecker[10000] = {0, };
+int					*g_nullchecker = {0, };
 int					g_cchecker;
 int					g_exitloop;
 
@@ -71,6 +71,8 @@ void		ft_vsprintf_put(char **str, char **tmp)
 
 void		ft_vsprintf_setstr(char **str, char *buf)
 {
+	g_nullchecker = malloc(sizeof(int) * (INT_MAX - 1));
+	ft_memset(g_nullchecker, 0, INT_MAX - 1);
 	*str = buf;
 	g_checker = 0;
 	g_cchecker = 0;

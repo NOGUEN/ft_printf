@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 10:53:56 by hnoh              #+#    #+#             */
-/*   Updated: 2021/02/11 09:51:22 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/12 07:21:56 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 # define LONGFLAG			0x00000001
 # define LONGLONGFLAG		0x00000002
@@ -82,6 +81,7 @@ size_t		ft_strlen(const char *s);
 size_t		ft_strnlen(char *s, size_t maxlen);
 int			ft_isdigit(int c);
 void		ft_puts(char *str);
+void		*ft_memset(void *dest, int c, size_t)
 
 void		ft_outputstring(char **str);
 void		ft_outputstring1(char *c);
