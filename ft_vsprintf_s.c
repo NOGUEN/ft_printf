@@ -6,7 +6,7 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 11:41:26 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/08 12:15:24 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/11 09:28:57 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_vsprintf_s(char **tmp, char **str, va_list *ap)
 	int				len;
 	char			*s;
 	int				i;
+	char			c;
 
 	if (**tmp == 's')
 	{
@@ -26,9 +27,10 @@ void	ft_vsprintf_s(char **tmp, char **str, va_list *ap)
 		len = ft_strnlen(s, g_precision);
 		if (!(g_flags & POINTFLAG) || (g_flags & MINUSPREFLAG))
 			len = ft_strlen(s);
+		c = (g_flags & LEADZEROFLAG) ? '0' : ' ';
 		if (!(g_flags & LEFTFORMATFLAG))
 			while (len < g_format_num--)
-				*(*str)++ = ' ';
+				*(*str)++ = c;
 		i = 0;
 		while (i++ < len)
 		{

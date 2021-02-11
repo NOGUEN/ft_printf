@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:08:39 by hnoh              #+#    #+#             */
-/*   Updated: 2021/02/09 19:08:44 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/11 09:20:47 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,6 @@ void		ft_vsprintf_put(char **str, char **tmp)
 		*(*str)++ = *(*tmp)++;
 		g_cchecker++;
 	}
-	ft_vsprintf_set(tmp);
-}
-
-void		ft_vsprintf_set(char **tmp)
-{
 	if (g_checker != 2)
 	{
 		if (**tmp == 0)
@@ -82,6 +77,24 @@ void		ft_vsprintf_setstr(char **str, char *buf)
 	g_exitloop = 0;
 }
 
+void		ft_vsprintf_continue(char **str, char **tmp)
+{
+	if (g_checker == 1 || g_checker == 2)
+	{
+		if (g_checker == 1)
+			(*tmp)++;
+		g_exitloop = 2;
+		return ;
+	}
+	else if (g_checker == 3)
+	{
+		(*tmp)++;
+		ft_outputstring(str);
+		g_exitloop = 2;
+		return ;
+	}
+}
+
 int			ft_vsprintf(char *buf, char *tmp, va_list ap)
 {
 	char				*str;
@@ -90,22 +103,15 @@ int			ft_vsprintf(char *buf, char *tmp, va_list ap)
 	while (1)
 	{
 		ft_vsprintf_put(&str, &tmp);
+		if (g_exitloop == 1)
+			break ;
 		tmp++;
 		if (*tmp == 0)
 			break ;
 		ft_vsprintf_case(&tmp, &str, &ap);
-		if (g_checker == 1 || g_checker == 2)
-		{
-			if (g_checker == 1)
-				tmp++;
+		ft_vsprintf_continue(&str, &tmp);
+		if (g_exitloop == 2)
 			continue ;
-		}
-		else if (g_checker == 3)
-		{
-			tmp++;
-			ft_outputstring(&str);
-			continue ;
-		}
 	}
 	*str = 0;
 	return (str - buf);
