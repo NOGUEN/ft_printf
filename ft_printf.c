@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 10:57:32 by hnoh              #+#    #+#             */
-/*   Updated: 2021/02/08 19:18:38 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/11 09:51:28 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_printf(const char *format, ...)
 
 	va_start(ap, format);
 	tmp = (char *)format;
-	err = ft_vsprintf(printf_buf, tmp, ap);
+	err = ft_vsprintf(printf_buf, tmp, &ap);
 	va_end(ap);
 	ft_puts(printf_buf);
 	return (err);

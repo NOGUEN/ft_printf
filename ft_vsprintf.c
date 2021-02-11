@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 10:08:39 by hnoh              #+#    #+#             */
-/*   Updated: 2021/02/11 09:20:47 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/11 09:50:53 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void		ft_vsprintf_continue(char **str, char **tmp)
 	}
 }
 
-int			ft_vsprintf(char *buf, char *tmp, va_list ap)
+int			ft_vsprintf(char *buf, char *tmp, va_list *ap)
 {
 	char				*str;
 
@@ -108,7 +108,7 @@ int			ft_vsprintf(char *buf, char *tmp, va_list ap)
 		tmp++;
 		if (*tmp == 0)
 			break ;
-		ft_vsprintf_case(&tmp, &str, &ap);
+		ft_vsprintf_case(&tmp, &str, ap);
 		ft_vsprintf_continue(&str, &tmp);
 		if (g_exitloop == 2)
 			continue ;

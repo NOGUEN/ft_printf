@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 10:53:56 by hnoh              #+#    #+#             */
-/*   Updated: 2021/02/09 19:13:16 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/11 09:51:22 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ extern int					g_exitloop;
 
 int			ft_printf(const char *format, ...);
 
-int			ft_vsprintf(char *buf, char *tmp, va_list args);
+int			ft_vsprintf(char *buf, char *tmp, va_list *ap);
 void		ft_vsprintf2(char **tmp);
 void		ft_vsprintf_put(char **str, char **tmp);
 void		ft_vsprintf_set(char **tmp);
@@ -64,7 +64,7 @@ void		ft_vsprintf_plus(char **tmp);
 void		ft_vsprintf_hash(char **tmp);
 void		ft_vsprintf_space(char **tmp);
 void		ft_vsprintf_c(char **tmp, char **str, va_list *ap);
-void		ft_vsprintf_s(char **tmp, va_list *ap, char **s);
+void		ft_vsprintf_s(char **tmp, char **str, va_list *ap);
 void		ft_vsprintf_p(char **tmp, va_list *ap);
 void		ft_vsprintf_d(char **tmp, va_list *ap);
 void		ft_vsprintf_i(char **tmp, va_list *ap);
