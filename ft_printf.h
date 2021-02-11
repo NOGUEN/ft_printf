@@ -6,7 +6,7 @@
 /*   By: hnoh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 10:53:56 by hnoh              #+#    #+#             */
-/*   Updated: 2021/02/12 07:21:56 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/12 07:33:49 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ extern int					g_checker;
 extern long					g_n;
 extern char					g_tmp[100];
 extern int					g_base;
-extern int					g_nullchecker[10000];
+extern int					*g_nullchecker;
 extern int					g_cchecker;
 extern int					g_exitloop;
 
