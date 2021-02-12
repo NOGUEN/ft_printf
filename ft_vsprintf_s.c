@@ -6,13 +6,13 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 11:41:26 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/11 09:34:29 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/12 11:57:23 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_vsprintf_s(char **tmp, char **str, va_list *ap)
+void	ft_vsprintf_s(char **tmp, va_list *ap)
 {
 	int				len;
 	char			*s;
@@ -30,12 +30,12 @@ void	ft_vsprintf_s(char **tmp, char **str, va_list *ap)
 		c = (g_flags & LEADZEROFLAG) ? '0' : ' ';
 		if (!(g_flags & LEFTFORMATFLAG))
 			while (len < g_format_num--)
-				*(*str)++ = c;
+				ft_puts(c);
 		i = 0;
 		while (i++ < len)
-			*(*str)++ = *s++;
+			ft_puts(*s++);
 		while (len < g_format_num--)
-			*(*str)++ = ' ';
+			ft_puts(' ');
 		g_checker = 1;
 	}
 }

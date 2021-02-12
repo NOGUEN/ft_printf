@@ -6,7 +6,7 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:15:29 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/09 19:11:12 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/12 11:54:36 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		ft_outputstring2(char *sign)
 	}
 }
 
-void		ft_outputstring3(char **str, int *i, char *digits)
+void		ft_outputstring3(int *i, char *digits)
 {
 	(*i) = 0;
 	if (g_n == 0 && (g_flags & POINTFLAG) && (g_flags & PREZEROFLAG)
@@ -66,34 +66,34 @@ void		ft_outputstring3(char **str, int *i, char *digits)
 			&& (g_flags & POINTFLAG) && !(g_flags & LEFTFORMATFLAG)
 			&& !(g_flags & MINUSPREFLAG)))
 		while (g_format_num-- > 0)
-			ft_outputchar(str, ' ');
+			ft_puts(' ');
 }
 
-void		ft_outputstring4(char **str, char *sign, char *c)
+void		ft_outputstring4(char *sign, char *c)
 {
 	if (g_flags & POINTERFLAG)
 	{
-		ft_outputchar(str, '0');
-		ft_outputchar(str, 'x');
+		ft_puts('0');
+		ft_puts('x');
 	}
 	if (*sign)
-		ft_outputchar(str, *sign);
+		ft_puts(*sign);
 	if (!(g_flags & LEFTFORMATFLAG))
 	{
 		if ((g_flags & BIGFORMATFLAG) && (g_flags & POINTFLAG)
 				&& !(g_flags & MINUSPREFLAG))
 			*c = ' ';
 		while (g_format_num-- > 0)
-			ft_outputchar(str, *c);
+			ft_puts(*c);
 	}
 }
 
-void		ft_outputstring5(char **str, int *i)
+void		ft_outputstring5(int *i)
 {
 	while (*i < g_precision--)
-		ft_outputchar(str, '0');
+		ft_puts('0');
 	while ((*i)-- > 0)
-		ft_outputchar(str, g_tmp[*i]);
+		ft_puts(g_tmp[*i]);
 	while (g_format_num-- > 0)
-		ft_outputchar(str, ' ');
+		ft_puts(' ');
 }

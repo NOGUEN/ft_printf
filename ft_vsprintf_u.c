@@ -6,7 +6,7 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 11:50:43 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/09 13:14:15 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/12 11:40:33 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,7 @@ void	ft_vsprintf_u(char **tmp, va_list *ap)
 {
 	if (**tmp == 'u')
 	{
-		if (g_flags & LONGLONGFLAG)
-			g_n = va_arg(*ap, unsigned long long);
-		if (g_flags & LONGFLAG)
-			g_n = va_arg(*ap, unsigned long);
-		if (g_flags & HALFHALFFLAG)
-			g_n = (unsigned char)va_arg(*ap, unsigned int);
-		if (g_flags & HALFFLAG)
-			g_n = (unsigned short)va_arg(*ap, unsigned int);
-		if (g_flags & SIZETFLAG)
-			g_n = va_arg(*ap, size_t);
-		else
-			g_n = va_arg(*ap, unsigned int);
+		g_n = va_arg(*ap, unsigned int);
 		g_checker = 3;
 	}
 }

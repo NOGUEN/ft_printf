@@ -6,19 +6,18 @@
 /*   By: nogeun <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 14:02:36 by nogeun            #+#    #+#             */
-/*   Updated: 2021/02/09 10:23:23 by nogeun           ###   ########.fr       */
+/*   Updated: 2021/02/12 12:17:09 by nogeun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_defaultact(char **tmp, char **str)
+void		ft_defaultact(char **tmp)
 {
 	if (g_checker == 0)
 	{
-		*(*str)++ = '%';
-		*(*str)++ = **tmp;
-		g_cchecker += 2;
+		ft_puts('%');
+		ft_puts(**tmp);
 		g_checker = 1;
 	}
 }

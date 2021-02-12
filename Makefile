@@ -6,7 +6,7 @@
 #    By: nogeun <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/24 21:41:47 by nogeun            #+#    #+#              #
-#    Updated: 2021/02/12 07:22:18 by nogeun           ###   ########.fr        #
+#    Updated: 2021/02/12 12:13:16 by nogeun           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,6 @@ SRCS	=		ft_defaultact.c		\
 				ft_do_div.c			\
 				ft_vsprintf_outputstring.c	\
 				ft_outputstring.c	\
-				ft_outputchar.c		\
-				ft_memset.c			\
 
 OBJS	=		$(SRCS:.c=.o)
 
